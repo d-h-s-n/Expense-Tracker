@@ -76,3 +76,9 @@ def main_menu():
 # Entry point of the program
 if __name__ == "__main__":
     main_menu()
+
+# initialize_csv(): Checks if expenses.csv exists; if not, it creates it with a header row (Amount,Category,Description).
+# add_expense(amount, category, description): Adds a new expense to expenses.csv with provided amount, category, and description.
+# display_summary(): Reads the data from expenses.csv, calculates total spending and category-wise spending, then displays the results.
+# main_menu(): Implements a loop allowing users to add expenses, view summaries, or exit the program.
+# select_category(): Displays categories from CATEGORIES list and allows the user to select one when adding a new expense.
