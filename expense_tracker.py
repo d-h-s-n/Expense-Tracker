@@ -1,5 +1,6 @@
 import csv
 import os
+import matplotlib.pyplot as plt
 
 # Constants
 DATA_FILE = 'expenses.csv'
@@ -36,10 +37,27 @@ def display_summary():
     if total_spent == 0:
         print("No expenses recorded yet.")
     else:
-        print(f"\nTotal money spent: ${total_spent:.2f}")
+        print(f"\nTotal money spent: {total_spent:.2f}Rs")
         print("\nCategory-wise spending:")
         for category, amount in category_spending.items():
-            print(f"{category}: ${amount:.2f}")
+            print(f"{category}: {amount:.2f}Rs")
+        
+        # Plotting bar chart
+        plot_bar_chart(category_spending)
+
+# Function to plot a bar chart of category-wise spending
+def plot_bar_chart(category_spending):
+    categories = list(category_spending.keys())
+    amounts = list(category_spending.values())
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(categories, amounts, color='blue')
+    plt.xlabel('Categories')
+    plt.ylabel('Amount Spent (Rs)')
+    plt.title('Category-wise Expense Distribution')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
 
 # Function to select expense category
 def select_category():
@@ -76,6 +94,7 @@ def main_menu():
 # Entry point of the program
 if __name__ == "__main__":
     main_menu()
+
 
 # initialize_csv(): Checks if expenses.csv exists; if not, it creates it with a header row (Amount,Category,Description).
 # add_expense(amount, category, description): Adds a new expense to expenses.csv with provided amount, category, and description.
