@@ -12,25 +12,12 @@ def initialize_csv():
             writer = csv.writer(f)
             writer.writerow(['Amount', 'Category', 'Description'])
 
-# Function to add a new expense
-def add_expense():
-    amount = float(input("Enter the amount spent: "))
-    category = select_category()
-    description = input("Enter a short description: ")
-
+# Function to add a new expense to CSV
+def add_expense(amount, category, description):
     with open(DATA_FILE, 'a', newline='') as f:
         writer = csv.writer(f)
         writer.writerow([amount, category, description])
-    
     print("Expense added successfully!")
-
-# Function to select expense category
-def select_category():
-    print("\nSelect a category:")
-    for i, category in enumerate(CATEGORIES, start=1):
-        print(f"{i}. {category}")
-    choice = int(input("Enter category number: "))
-    return CATEGORIES[choice - 1]
 
 # Function to display summary of expenses
 def display_summary():
@@ -38,13 +25,13 @@ def display_summary():
     category_spending = {category: 0 for category in CATEGORIES}
 
     with open(DATA_FILE, 'r', newline='') as f:
-        reader = csv.reader(f)
-        next(reader)  # Skip header row
+        reader = csv.DictReader(f)
         for row in reader:
-            amount = float(row[0])
-            category = row[1]
+            amount = float(row['Amount'])
+            category = row['Category']
             total_spent += amount
-            category_spending[category] += amount
+            if category in category_spending:
+                category_spending[category] += amount
     
     if total_spent == 0:
         print("No expenses recorded yet.")
@@ -53,6 +40,14 @@ def display_summary():
         print("\nCategory-wise spending:")
         for category, amount in category_spending.items():
             print(f"{category}: ${amount:.2f}")
+
+# Function to select expense category
+def select_category():
+    print("\nSelect a category:")
+    for i, category in enumerate(CATEGORIES, start=1):
+        print(f"{i}. {category}")
+    choice = int(input("Enter category number: "))
+    return CATEGORIES[choice - 1]
 
 # Main menu function
 def main_menu():
@@ -66,7 +61,10 @@ def main_menu():
         choice = input("Enter your choice (1-3): ")
 
         if choice == '1':
-            add_expense()
+            amount = float(input("Enter the amount spent: "))
+            category = select_category()
+            description = input("Enter a short description: ")
+            add_expense(amount, category, description)
         elif choice == '2':
             display_summary()
         elif choice == '3':
