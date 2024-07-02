@@ -1,7 +1,8 @@
 # Expense-Tracker
 Developed a personal expense tracker application using Python, which allows users to input, categorize, and
 visualize their expenses. Utilized skills in Python, Matplotlib for data visualization.
-💡 Implemented error handling and robust data storage for reliability. 
+
+💡 Implemented error handling and robust data storage for reliability.
 Check out the details of this project and dive into the world of effective expense management! 
  #Python #ExpenseTracker #Programming #DataAnalysis
 
