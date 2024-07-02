@@ -12,7 +12,7 @@ User Input and Data Management: Allows users to input daily expenses with descri
 
 Expense Categorization: Categorizes expenses into predefined categories for better organization.
 
-Data Analysis: Provides users with summaries of total spending and category-wise expenditure.
+Data Analysis: Provides users with summaries of total spending and category-wise expenditure(in Rs).
 
 User-Friendly Interface: Designed for ease of use with a simple command-line interface.
 
