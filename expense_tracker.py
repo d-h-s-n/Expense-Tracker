@@ -3,7 +3,7 @@ import os
 import matplotlib.pyplot as plt
 
 # Constants
-DATA_FILE = 'expenses.csv'
+DATA_FILE = 'expenses.csv'                     # expenses excel sheet
 CATEGORIES = ['Food', 'Utilities', 'Transportation', 'Entertainment', 'Miscellaneous']
 
 # Function to initialize the CSV file if it doesn't exist
