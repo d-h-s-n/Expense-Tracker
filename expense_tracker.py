@@ -14,6 +14,7 @@ def initialize_csv():
             writer.writerow(['Amount', 'Category', 'Description'])
 
 # Function to add a new expense to CSV
+# This function is created for adding a  new expense to excel sheet file 
 def add_expense(amount, category, description):
     with open(DATA_FILE, 'a', newline='') as f:
         writer = csv.writer(f)
