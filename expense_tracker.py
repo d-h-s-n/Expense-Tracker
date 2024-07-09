@@ -73,10 +73,7 @@ def main_menu():
     initialize_csv()
     
     while True:
-        print("\nExpense Tracker Menu:")
-        print("1. Add Expense")
-        print("2. View Expense Summary")
-        print("3. Exit")
+        print("\nExpense Tracker Menu: \n1. Add Expense\n2. View Expense Summary\n3. Exit ")
         choice = input("Enter your choice (1-3): ")
 
         if choice == '1':
